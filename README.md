@@ -1,4 +1,4 @@
-# flutter_strong_boilerplate
+# Flutter Boilerplate
 
 [![Generic badge](https://img.shields.io/badge/Flutter-Latest-blue)](https://flutter.dev/docs)
 [![Generic badge](https://img.shields.io/badge/Dart-Latest-blue)](https://dart.dev/guides)
@@ -8,16 +8,16 @@
 Flutter repository template
 
 ## TODOs
-- [] BLoC Bases
-- [] Core Material Component  
-- [] Model Generator
-- [] Theme Abstraction (normal, dark, and other)
-- [] Linter
-- [] Firebase Analytics
-- [] Github Actions (CI/CD)
-- [] Fastlane
-- [] Documentation Bases (Readme.md's)
-- [] Flavor & App Config (Endpoints)
+- [ ] BLoC Bases
+- [ ] Core Material Component  
+- [ ] Model Generator
+- [ ] Theme Abstraction (normal, dark, and other)
+- [ ] Linter
+- [ ] Firebase Analytics
+- [ ] Github Actions (CI/CD)
+- [ ] Fastlane
+- [ ] Documentation Bases (Readme.md's)
+- [ ] Flavor & App Config (Endpoints)
 
 ## ⚡️ Getting Started
 
