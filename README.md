@@ -9,11 +9,12 @@ Flutter repository template
 
 ## TODOs
 - [ ] BLoC Bases
-- [ ] Core Material Component  
+- [ ] Core Material Component
 - [ ] Model Generator
 - [ ] Theme Abstraction (normal, dark, and other)
-- [ ] Linter
-- [ ] Firebase Analytics
+- [X] Linter
+- [X] Firebase Analytics
+- [X] Firebase Crashlytics
 - [ ] Github Actions (CI/CD)
 - [ ] Fastlane
 - [ ] Documentation Bases (Readme.md's)
