@@ -50,7 +50,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        // TODO(Any): Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.main.flutter_strong_boilerplate"
         minSdkVersion flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
@@ -61,7 +61,7 @@ android {
     flavorDimensions "apps"
 
     // TODO(Any): config signing properties
-    // Two kinds signingConfigs
+    // Three kinds signingConfigs
     // 1. Development
     // 2. Staging
     // 3. Release
@@ -73,7 +73,7 @@ android {
             keyPassword keystoreProperties['keyPasswordDevelopment']
         }
 
-        development {
+        staging {
             storeFile file(keystoreProperties['storeFileStaging'])
             storePassword keystoreProperties['storePasswordStaging']
             keyAlias keystoreProperties['keyAliasStaging']
@@ -98,7 +98,7 @@ android {
         development {
             dimension "apps"
             applicationIdSuffix ".staging"
-            signingConfig signingConfigs.development
+            signingConfig signingConfigs.staging
         }
 
         production {
