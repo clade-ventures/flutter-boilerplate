@@ -30,6 +30,8 @@
 .pub-cache/
 .pub/
 /build/
+/coverage/
+genhtml.perl
 
 # Web related
 lib/generated_plugin_registrant.dart
