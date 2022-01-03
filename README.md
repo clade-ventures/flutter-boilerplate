@@ -79,7 +79,7 @@ Using [flutter BLoC](https://pub.dev/packages/flutter_bloc) for Business Logic C
 
 ### Example Feature
 
-<img src="/assets/screenshots/lazy_loading_users" width="150" height="200"> 
-<img src="/assets/screenshots/index_loading_users" width="150" height="200">
-<img src="/assets/screenshots/lazy_loading_issues" width="150" height="200">
-<img src="/assets/screenshots/lazy_loading_users_not_found" width="150" height="200">
+<img src="/assets/screenshots/lazy_loading_users.jpg" width="150" height="200"> 
+<img src="/assets/screenshots/index_loading_users.jpg" width="150" height="200">
+<img src="/assets/screenshots/lazy_loading_issues.jpg" width="150" height="200">
+<img src="/assets/screenshots/lazy_loading_users_not_found.jpg" width="150" height="200">

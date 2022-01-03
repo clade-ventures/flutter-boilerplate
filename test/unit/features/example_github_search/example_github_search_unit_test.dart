@@ -21,7 +21,7 @@ void main() {
   void setUpMockGithubSearchUserSuccess200() {
     final resultUser = [GithubUserModel()];
     when<Future<Parsed<List<GithubUserModel>>>>(
-      () => dataSource.searchUser(any()),
+      () => dataSource.searchUser(q),
     ).thenAnswer(
       (_) async => Parsed.fromJson(
         <String, dynamic>{},
