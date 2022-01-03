@@ -2,20 +2,20 @@ import 'package:dio/dio.dart';
 
 class Parsed<T> {
   Parsed.fromJson(
-      Map<String, dynamic> json,
-      this.statusCode,
-      this.data,
-      ) {
+    Map<String, dynamic> json,
+    this.statusCode,
+    this.data,
+  ) {
     message = json['error'] ?? json['detail'] ?? '';
-    totalCount = json['total_count'];
+    totalCount = json['total_count'] ?? 0;
   }
 
   Parsed.fromPaginationJson(
-      Map<String, dynamic> json,
-      this.statusCode,
-      this.data,
-      this.meta,
-      ) {
+    Map<String, dynamic> json,
+    this.statusCode,
+    this.data,
+    this.meta,
+  ) {
     message = json['error'] ?? json['detail'] ?? '';
   }
 

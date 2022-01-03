@@ -14,11 +14,13 @@ class App extends StatelessWidget {
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: analytics),
       ],
-      home: Scaffold(body: Container(),),
+      home: Scaffold(
+        body: Container(),
+      ),
       routes: {
         '/callback': (context) => Scaffold(
-          body: Container(),
-        ),
+              body: Container(),
+            ),
       },
     );
   }

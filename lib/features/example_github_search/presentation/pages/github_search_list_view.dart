@@ -8,7 +8,6 @@ import 'package:flutter_strong_boilerplate/core/bases/widgets/scaffold/custom_sc
 import 'package:flutter_strong_boilerplate/core/bases/widgets/sizer/height_space.dart';
 import 'package:flutter_strong_boilerplate/core/bases/widgets/sizer/width_space.dart';
 import 'package:flutter_strong_boilerplate/core/screen/sizing_information.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
 import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
 import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/bloc/github_search_bloc.dart';
@@ -17,6 +16,7 @@ import 'package:flutter_strong_boilerplate/features/example_github_search/presen
 import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/widgets/issue_item.dart';
 import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/widgets/repository_item.dart';
 import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/widgets/user_item.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class GithubSearchListView extends StatefulWidget {
   const GithubSearchListView({

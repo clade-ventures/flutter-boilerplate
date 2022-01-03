@@ -1,24 +1,27 @@
 import 'package:flutter_strong_boilerplate/core/bases/entities/query_search.dart';
 import 'package:flutter_strong_boilerplate/core/extensions/response_extension.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/datasources/github_search_remote_data_source.dart';
 import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/github_user_model.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:http/http.dart' as http;
+import 'package:mocktail/mocktail.dart';
 
 import 'datasources/mock_example_github_search_remote_data_source.dart';
 
+class HttpMock extends Mock implements http.Client {}
+
 void main() {
-  GithubSearchRemoteDataSourceImpl dataSource =
-      ExampleGithubSearchRemoteDataSourceMock();
+  late ExampleGithubSearchRemoteDataSourceMock dataSource;
+  late QuerySearch q;
 
   setUpAll(() {
-    // dataSource = ();
+    dataSource = ExampleGithubSearchRemoteDataSourceMock();
+    q = QuerySearch();
   });
 
   void setUpMockGithubSearchUserSuccess200() {
     final resultUser = [GithubUserModel()];
     when<Future<Parsed<List<GithubUserModel>>>>(
-      dataSource.searchUser(QuerySearch()),
+      () => dataSource.searchUser(any()),
     ).thenAnswer(
       (_) async => Parsed.fromJson(
         <String, dynamic>{},
@@ -28,12 +31,12 @@ void main() {
     );
   }
 
-  test('Counter increments smoke test', () async {
+  test('Github search user test', () async {
     // arrange
     setUpMockGithubSearchUserSuccess200();
     // act
-    await dataSource.searchUser(QuerySearch());
+    await dataSource.searchUser(q);
     // assert
-    verify(dataSource.searchUser(QuerySearch()));
+    verify(() => dataSource.searchUser(q));
   });
 }

@@ -41,11 +41,13 @@ class Config {
     ///Initialize Future variables
 
     /// Initialize SystemUI
-    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarBrightness: Brightness.dark,
-      statusBarIconBrightness: Brightness.dark,
-      statusBarColor: Colors.transparent,
-    ));
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.dark,
+        statusBarColor: Colors.transparent,
+      ),
+    );
   }
 
   static bool get isDevelopment => appFlavor == Flavor.development;
@@ -57,8 +59,12 @@ class Config {
     switch (appFlavor) {
       case Flavor.development:
         return const BaseConfig();
+      case Flavor.staging:
+        return const BaseConfig();
       case Flavor.production:
         return const BaseConfig();
+      case null:
+        throw UnimplementedError();
     }
   }
 }

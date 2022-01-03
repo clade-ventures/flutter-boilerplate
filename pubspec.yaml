@@ -23,7 +23,8 @@ dependencies:
   shared_preferences: ^2.0.6
   dio: ^4.0.4
   equatable: ^2.0.3
-  mockito: ^5.0.17
+  mocktail: ^0.2.0
+  http:
 
 dev_dependencies:
   flutter_test:
