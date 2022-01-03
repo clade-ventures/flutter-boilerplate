@@ -8,19 +8,19 @@
 
 Flutter repository template
 
-## TODOs
-- [ ] BLoC Bases
-- [ ] Core Material Component
-- [X] Example Feature (Include Unit Test)  
-- [ ] Model Generator
-- [X] Theme Abstraction (normal, dark, and other)
-- [X] Linter
-- [X] Firebase Analytics
-- [X] Firebase Crashlytics
-- [ ] Github Actions (CI/CD)
-- [ ] Fastlane
-- [ ] Documentation Bases (Readme.md's)
-- [X] Flavor & App Config (Endpoints)
+## TODO
+- [ ] BLoC Bases.
+- [ ] Core Material Component.
+- [X] Example Feature (Include Unit Test): Example Github Search Users, Repos, and Issues.
+- [ ] Model Generator.
+- [X] Theme Abstraction (normal, dark, and other).
+- [X] Linter.
+- [X] Firebase Analytics.
+- [X] Firebase Crashlytics.
+- [ ] Github Actions (CI/CD).
+- [ ] Fastlane.
+- [ ] Documentation Bases (Readme.md's).
+- [X] Flavor & App Config (Endpoints).
 
 ## ⚡️Getting Started
 
@@ -76,3 +76,10 @@ Reso coder's fllutter clean architecture
 ### 🧬️ State Management
 
 Using [flutter BLoC](https://pub.dev/packages/flutter_bloc) for Business Logic Component Design Pattern.
+
+### Example Feature
+
+<img src="/assets/screenshots/lazy_loading_users" width="150" height="200"> 
+<img src="/assets/screenshots/index_loading_users" width="150" height="200">
+<img src="/assets/screenshots/lazy_loading_issues" width="150" height="200">
+<img src="/assets/screenshots/lazy_loading_users_not_found" width="150" height="200">
