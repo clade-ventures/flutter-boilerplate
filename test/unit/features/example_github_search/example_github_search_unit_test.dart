@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter_strong_boilerplate/core/bases/entities/query_search.dart';
+import 'package:flutter_strong_boilerplate/core/client/dio.dart';
 import 'package:flutter_strong_boilerplate/features/example_github_search/data/datasources/github_search_remote_data_source.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
@@ -488,6 +489,18 @@ A programming language designed for client development, such as for the web and 
           'closed_at': null,
           'author_association': 'OWNER',
           'active_lock_reason': null,
+          'draft': false,
+          'pull_request': {
+            'url':
+                'https://api.github.com/repos/ninjasolutions/flutter_pusher/pulls/20',
+            'html_url':
+                'https://github.com/ninjasolutions/flutter_pusher/pull/20',
+            'diff_url':
+                'https://github.com/ninjasolutions/flutter_pusher/pull/20.diff',
+            'patch_url':
+                'https://github.com/ninjasolutions/flutter_pusher/pull/20.patch',
+            'merged_at': null
+          },
           'body':
               'Flutter Course - Full Tutorial for Beginners (Build iOS and Android Apps)\r\n\r\nLink: https://www.youtube.com/watch?v=pTJJsmejUOQ\r\n\r\nRepository: https://gitlab.com/SyafiqHadzir/kotlin-tutorial/-/tree/main/tutorials/flutter-tutorial-beginners\r\n\r\n### Milestones\r\n\r\n- [x] Introduction\r\n- [ ] Layout in Flutter\r\n- [ ] Images\r\n- [ ] Text\r\n- [ ] Models\r\n- [ ] Navigation and Lists',
           'reactions': {
@@ -555,6 +568,33 @@ A programming language designed for client development, such as for the web and 
       // assert
       expect(resp.statusCode, 200);
       expect(resp.data.first.toJson(), isA<Map<String, dynamic>>());
+    });
+
+    test('Garbage unit test', () async {
+      // arrange
+      setUpMockGithubSearchIssueSuccess200();
+      // act
+      final resp = await postIt('http', dio: dio);
+      // assert
+      expect(resp.statusCode, 200);
+    });
+
+    test('Garbage unit test', () async {
+      // arrange
+      setUpMockGithubSearchIssueSuccess200();
+      // act
+      final resp = await deleteIt('http', dio: dio);
+      // assert
+      expect(resp.statusCode, 200);
+    });
+
+    test('Garbage unit test', () async {
+      // arrange
+      setUpMockGithubSearchIssueSuccess200();
+      // act
+      final resp = await putIt('http', dio: dio);
+      // assert
+      expect(resp.statusCode, 200);
     });
   });
 }
