@@ -2,11 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/core/base_stateful.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/loading/circle_loading.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/scaffold/custom_scaffold.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/sizer/height_space.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/sizer/width_space.dart';
+import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/circle_loading.dart';
+import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/height_space.dart';
+import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/width_space.dart';
+import 'package:flutter_strong_boilerplate/core/bases/widgets/layout/base_stateful.dart';
+import 'package:flutter_strong_boilerplate/core/bases/widgets/molecules/custom_scaffold.dart';
 import 'package:flutter_strong_boilerplate/core/screen/sizing_information.dart';
 import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
 import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';

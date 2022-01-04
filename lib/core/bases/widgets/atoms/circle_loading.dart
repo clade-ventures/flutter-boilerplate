@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 /// A circle loading widget.
@@ -14,6 +13,7 @@ class CircleLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final int data;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(5),
