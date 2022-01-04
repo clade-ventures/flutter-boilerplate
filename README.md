@@ -2,6 +2,7 @@
 
 [![Generic badge](https://img.shields.io/badge/Flutter-Latest-blue)](https://flutter.dev/docs)
 [![Generic badge](https://img.shields.io/badge/Dart-Latest-blue)](https://dart.dev/guides)
+[![Generic badge](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
 [![test](https://github.com/clade-ventures/flutter-boilerplate/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/clade-ventures/flutter-boilerplate/actions/workflows/test.yaml)
 [![Generic badge](https://img.shields.io/badge/development-v0.0.1-brightgreen)](https://github.com/clade-ventures/flutter-boilerplate)
 [![codecov](https://codecov.io/gh/clade-ventures/flutter-boilerplate/branch/main/graph/badge.svg?token=Z1WV03U14P)](https://codecov.io/gh/clade-ventures/flutter-boilerplate)
@@ -10,7 +11,7 @@
 Flutter repository template
 
 ## TODO
-- [ ] BLoC Bases.
+- [X] BLoC Bases.
 - [ ] Core Material Component.
 - [X] Example Feature (Include Unit Test): Example Github Search Users, Repos, and Issues.
 - [ ] Model Generator.
@@ -18,7 +19,7 @@ Flutter repository template
 - [X] Linter.
 - [X] Firebase Analytics.
 - [X] Firebase Crashlytics.
-- [ ] Github Actions (CI/CD).
+- [X] Github Actions (CI/CD).
 - [ ] Fastlane.
 - [ ] Documentation Bases (Readme.md's).
 - [X] Flavor & App Config (Endpoints).
