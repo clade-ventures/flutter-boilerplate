@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_strong_boilerplate/core/bases/blocs/theme/theme_cubit.dart';
 import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
 import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
-import 'package:provider/src/provider.dart';
 
 /// A Secondary Button.
 class SecondaryButton extends StatelessWidget {
@@ -69,16 +69,17 @@ class SecondaryButton extends StatelessWidget {
       width: width,
       height: height ?? 42,
       decoration: BoxDecoration(
-          color: Colors.transparent,
-          borderRadius: borderRadius ?? BorderRadius.circular(8),
-          border: Border.all(
-            color: enabled
-                ? isBorder
-                    ? BaseColors.border
-                    : (activeColor ?? BaseColors.primary)
-                : BaseColors.disableColor,
-            width: 2,
-          )),
+        color: Colors.transparent,
+        borderRadius: borderRadius ?? BorderRadius.circular(8),
+        border: Border.all(
+          color: enabled
+              ? isBorder
+                  ? BaseColors.border
+                  : (activeColor ?? BaseColors.primary)
+              : BaseColors.disableColor,
+          width: 2,
+        ),
+      ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(6),
         child: Material(
