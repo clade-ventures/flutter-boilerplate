@@ -26,6 +26,9 @@ dependencies:
   mocktail: ^0.2.0
   flutter_spinkit: ^5.1.0
 
+  # Dependency Injection Pure Dart
+  states_rebuilder: ^5.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
