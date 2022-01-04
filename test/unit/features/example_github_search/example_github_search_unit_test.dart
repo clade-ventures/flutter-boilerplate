@@ -596,5 +596,14 @@ A programming language designed for client development, such as for the web and 
       // assert
       expect(resp.statusCode, 200);
     });
+
+    test('Garbage unit test', () async {
+      // arrange
+      setUpMockGithubSearchIssueSuccess200();
+      // act
+      final resp = await putIt('http', dio: dio);
+      // assert
+      expect(resp.statusCode, 200);
+    });
   });
 }

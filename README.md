@@ -1,4 +1,4 @@
-# Flutter Boilerplate
+# :pushpin: Flutter Boilerplate
 
 [![Generic badge](https://img.shields.io/badge/Flutter-2.8.1-blue)](https://flutter.dev/docs)
 [![Generic badge](https://img.shields.io/badge/Dart-2.15.1-blue)](https://dart.dev/guides)
@@ -9,9 +9,9 @@
 [![codecov](https://codecov.io/gh/clade-ventures/flutter-boilerplate/branch/main/graph/badge.svg?token=Z1WV03U14P)](https://codecov.io/gh/clade-ventures/flutter-boilerplate)
 [![Generic badge](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
-Flutter repository template
+Flutter repository template version 0.0.1
 
-## TODO
+## 	:round_pushpin: TODO
 - [X] BLoC Bases.
 - [ ] Core Material Component.
 - [X] Example Feature (Include Unit Test): Example Github Search Users, Repos, and Issues.
@@ -107,7 +107,16 @@ Using [flutter BLoC](https://pub.dev/packages/flutter_bloc) for Business Logic C
 
 ### Versioning
 
-Major-Minor-Patch
+Using Semantic Versioning 2.0.0
+
+Major.Minor.Patch
+
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+1. MAJOR version when you make incompatible API changes,
+2. MINOR version when you add functionality in a backwards compatible manner, and
+3. PATCH version when you make backwards compatible bug fixes.
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
 ### Naming Convention
 
