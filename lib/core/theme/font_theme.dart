@@ -115,4 +115,12 @@ class FontTheme {
       fontWeight: FontWeight.w400,
     );
   }
+
+  static TextStyle rubik14w500white1() {
+    return GoogleFonts.rubik(
+      color: BaseColors.white,
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+    );
+  }
 }

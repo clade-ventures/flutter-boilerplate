@@ -25,22 +25,16 @@ class Config {
     iconsPath = '${assetsPath!}/icons';
 
     await Firebase.initializeApp();
-    // try {
-    //
-    // }
-    // if (Platform.isAndroid || Platform.isIOS) {
-    //
-    // }
 
-    /// Initialization of all services
+    /// Initialization of all services.
     if (kDebugMode && !kIsWeb) {
       await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
       // await HiveDataBaseService.init();
     }
 
-    ///Initialize Future variables
+    /// Initialize Future variables.
 
-    /// Initialize SystemUI
+    /// Initialize SystemUI.
     SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
         statusBarBrightness: Brightness.dark,

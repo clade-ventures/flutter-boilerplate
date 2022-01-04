@@ -52,7 +52,7 @@ android {
     defaultConfig {
         // TODO(Any): Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
         applicationId "com.main.flutter_strong_boilerplate"
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 19
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -67,10 +67,10 @@ android {
     // 3. Release
     signingConfigs {
         development {
-            storeFile file(keystoreProperties['storeFileDevelopment'])
-            storePassword keystoreProperties['storePasswordDevelopment']
-            keyAlias keystoreProperties['keyAliasDevelopment']
-            keyPassword keystoreProperties['keyPasswordDevelopment']
+//            storeFile file(keystoreProperties['storeFileDevelopment'])
+//            storePassword keystoreProperties['storePasswordDevelopment']
+//            keyAlias keystoreProperties['keyAliasDevelopment']
+//            keyPassword keystoreProperties['keyPasswordDevelopment']
         }
 
         staging {
@@ -95,7 +95,7 @@ android {
             signingConfig signingConfigs.development
         }
 
-        development {
+        staging {
             dimension "apps"
             applicationIdSuffix ".staging"
             signingConfig signingConfigs.staging
@@ -124,6 +124,6 @@ flutter {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    implementation platform('com.google.firebase:firebase-bom:29.0.3')
     implementation 'com.google.firebase:firebase-analytics'
 }

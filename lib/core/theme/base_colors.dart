@@ -4,7 +4,23 @@ class BaseColors {
   static Color black = Colors.black;
   static Color white = Colors.white;
   static const Color disableColor = Color(0xFFCFCFCF);
+  static const Color border = Color(0xFFE3E4E5);
   static const Color primary = Color(0xFF101C42);
+  static const MaterialColor materialBlack = MaterialColor(
+    000000,
+    <int, Color>{
+      50: neutral10,
+      100: neutral20,
+      200: neutral30,
+      300: neutral40,
+      400: neutral50,
+      500: neutral60,
+      600: neutral70,
+      700: neutral80,
+      800: neutral90,
+      900: neutral100,
+    },
+  );
   static const MaterialColor materialPrimary = MaterialColor(
     0xFF101C42,
     <int, Color>{

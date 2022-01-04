@@ -2,4 +2,4 @@ import 'package:flutter_strong_boilerplate/features/example_github_search/data/d
 import 'package:mocktail/mocktail.dart';
 
 class ExampleGithubSearchRemoteDataSourceMock extends Mock
-    implements GithubSearchRemoteDataSourceImpl {}
+    implements GithubSearchRemoteDataSource {}
