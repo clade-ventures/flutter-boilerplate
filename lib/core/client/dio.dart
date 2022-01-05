@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_strong_boilerplate/services/shared_preferences_service.dart';
 import 'package:logger/logger.dart';
+import 'package:states_rebuilder/states_rebuilder.dart';
 
 /// Defaults Dio Options
 final options = Options(
@@ -20,7 +21,7 @@ Future<Response> getIt(
   final getHeaders = headers ?? SharedPreferencesService.getHeaders();
   Logger().i('Url $url');
   Logger().i('Headers $getHeaders');
-  final resp = await (dio ?? Dio())
+  final resp = await (dio ?? Injector.getAsReactive<Dio>().state)
       .get(
         url,
         options: options.copyWith(
@@ -40,7 +41,7 @@ Future<Response> postIt(
   final getHeaders = headers ?? SharedPreferencesService.getHeaders();
   Logger().i('Url $url');
   Logger().i('Headers $getHeaders');
-  final resp = await (dio ?? Dio()).post(
+  final resp = await (dio ?? Injector.getAsReactive<Dio>().state).post(
     url,
     data: json.encode(model),
     options: options.copyWith(
@@ -61,7 +62,7 @@ Future<Response> putIt(
   final getHeaders = headers ?? SharedPreferencesService.getHeaders();
   Logger().i('Url $url');
   Logger().i('Headers $getHeaders');
-  final resp = await (dio ?? Dio()).put(
+  final resp = await (dio ?? Injector.getAsReactive<Dio>().state).put(
     url,
     data: model,
     options: options.copyWith(
@@ -82,7 +83,7 @@ Future<Response> deleteIt(
   final getHeaders = headers ?? SharedPreferencesService.getHeaders();
   Logger().i('Url $url');
   Logger().i('Headers $getHeaders');
-  final resp = await (dio ?? Dio()).delete(
+  final resp = await (dio ?? Injector.getAsReactive<Dio>().state).delete(
     url,
     data: model,
     options: options.copyWith(
