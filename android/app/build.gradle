@@ -61,16 +61,24 @@ android {
     flavorDimensions "apps"
 
     // TODO(Any): config signing properties
-    // Three kinds signingConfigs
-    // 1. Development
-    // 2. Staging
-    // 3. Release
+    // Four kinds signingConfigs
+    // 1. Debug
+    // 2. Development
+    // 3. Staging
+    // 4. Release
     signingConfigs {
+        debug {
+            storeFile file(keystoreProperties['storeFileDebug'])
+            storePassword keystoreProperties['storePasswordDebug']
+            keyAlias keystoreProperties['keyAliasDebug']
+            keyPassword keystoreProperties['keyPasswordDebug']
+        }
+
         development {
-//            storeFile file(keystoreProperties['storeFileDevelopment'])
-//            storePassword keystoreProperties['storePasswordDevelopment']
-//            keyAlias keystoreProperties['keyAliasDevelopment']
-//            keyPassword keystoreProperties['keyPasswordDevelopment']
+            storeFile file(keystoreProperties['storeFileDevelopment'])
+            storePassword keystoreProperties['storePasswordDevelopment']
+            keyAlias keystoreProperties['keyAliasDevelopment']
+            keyPassword keystoreProperties['keyPasswordDevelopment']
         }
 
         staging {
@@ -89,6 +97,11 @@ android {
     }
 
     productFlavors {
+        debug {
+            dimension "apps"
+            signingConfig signingConfigs.debug
+        }
+
         development {
             dimension "apps"
             applicationIdSuffix ".development"

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Supported screen type (for now).
 enum DeviceScreenType {
   mobile,
   tablet,

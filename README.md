@@ -1,33 +1,120 @@
-# Flutter Boilerplate
+# :pushpin: Flutter Boilerplate
 
 [![Generic badge](https://img.shields.io/badge/Flutter-2.8.1-blue)](https://flutter.dev/docs)
 [![Generic badge](https://img.shields.io/badge/Dart-2.15.1-blue)](https://dart.dev/guides)
 [![Generic badge](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT)
-[![Generic badge](https://img.shields.io/badge/Platform-IOs,Android,Web,MacOs-purple)](https://dart.dev/guides)
+[![Generic badge](https://img.shields.io/badge/Platform-iOS,Android,Web,MacOs-purple)](https://dart.dev/guides)
 [![test](https://github.com/clade-ventures/flutter-boilerplate/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/clade-ventures/flutter-boilerplate/actions/workflows/test.yaml)
 [![Generic badge](https://img.shields.io/badge/development-v0.0.1-brightgreen)](https://github.com/clade-ventures/flutter-boilerplate)
 [![codecov](https://codecov.io/gh/clade-ventures/flutter-boilerplate/branch/main/graph/badge.svg?token=Z1WV03U14P)](https://codecov.io/gh/clade-ventures/flutter-boilerplate)
 [![Generic badge](https://img.shields.io/badge/style-very_good_analysis-B22C89.svg)](https://pub.dev/packages/very_good_analysis)
 
-Flutter repository template
+Flutter repository template version 0.0.1
 
-## TODO
+## 	:round_pushpin: TODO
 - [X] BLoC Bases.
-- [ ] Core Material Component.
+- [X] Core Material Component.
 - [X] Example Feature (Include Unit Test): Example Github Search Users, Repos, and Issues.
-- [ ] Model Generator.
 - [X] Theme Abstraction (normal, dark, and other).
 - [X] Linter.
+- [X] Github Actions (CI/CD).
+- [X] Flavor & App Config (Endpoints).
+- [X] Code coverage.
 - [X] Firebase Analytics.
 - [X] Firebase Crashlytics.
-- [X] Github Actions (CI/CD).
+- [ ] Firebase Messaging.
+- [ ] WebView Service.
+- [ ] Localization.
+- [ ] Model Generator.
 - [ ] Fastlane.
-- [ ] Documentation Bases (Readme.md's).
-- [X] Flavor & App Config (Endpoints).
-- [X] Code coverage
-- [ ] StoryBook
+- [ ] Documentations (Readme.md's & Wikis).
+- [ ] StoryBook.
 
 ## ⚡️Getting Started
+
+### :evergreen_tree: Project Tree
+```tree
+├── .github
+│   └── workflows
+│       └── test.yml
+│ 
+├── android
+├── assets
+│   ├── icons
+│   ├── images
+│   └── screenshots
+│
+├── ios  
+├── lib
+│   ├── core
+│   │   ├── bases
+│   │   ├── client
+│   │   ├── constants
+│   │   ├── environments
+│   │   ├── errors
+│   │   ├── extensions
+│   │   ├── screen
+│   │   └── theme
+│   │
+│   ├── feaures
+│   │   └── example_github_search
+│   │       ├── daa
+│   │       ├── domain
+│   │       └── presentation
+│   │
+│   └── services
+│       ├── date_service.dart
+│       ├── launch_service.dart
+│       ├── local_notification_service.dart
+│       ├── navigation.dart
+│       ├── share_service.dart
+│       ├── shared_preferences_service.dart
+│       └── widget_service.dart
+│ 
+├── macos 
+├── test
+│   ├── integration
+│   ├── unit
+│   ├── widget
+│   └── dio_mocks.dart
+│
+├── web
+├── .gitignore
+├── .metadata
+├── analysis_options.yaml
+├── CHANGELOG.md
+├── genhtml.perl
+├── LICENSE
+├── pubspec.lock
+├── pubspec.yaml
+└── README.md
+```
+
+A brief description of the layout:
+
+* `.github` has one github workflows directory.
+* `android` is android configuration directory.
+* `.gitignore` varies per project, but all projects need to ignore `bin` directory.
+* `test.yml` is the flutter-dart-lint config file.
+
+Notes:
+
+* genhtml.perl **MUST NOT** change well-defined command semantics, see genhtml.perl for details.
+
+### :hammer_and_pick: Configurations
+
+1. Change package name, bundle id (iOS) or application id (android).
+   Reference:
+    - [change package name](https://medium.com/@skyblazar.cc/how-to-change-the-package-name-of-your-flutter-app-4529e6e6e6fc)
+2. Create your own keystore and key.properties.
+   Reference:
+    - [App Signing (keystore)](https://developer.android.com/studio/publish/app-signing)
+    - [create keystore using Keytool](https://medium.com/@tom.truyen/create-an-android-keystore-using-keytool-commandline-10399a62e774)
+3. Setup your firebase project for firebase analytics, crashlytics, and messaging.
+   Reference:
+    - [Understand Firebase Project](https://firebase.google.com/docs/projects/learn-more)
+    - [Firebase analytics](https://pub.dev/packages/firebase_analytics)
+    - [Firebase crashlytics](https://pub.dev/packages/firebase_crashlytics)
 
 ### 🚚 How to run, drive, and build Apk
 
@@ -68,9 +155,10 @@ flutter drive -t test_driver/app.dart --flavor development
 
 ### ⚙️ Supported Flavor
 
-1. development
-2. staging
-3. production
+1. debug
+2. development
+3. staging
+4. production
 
 ### 🎯 Architecture & Pattern
 
@@ -82,7 +170,12 @@ Reso coder's fllutter clean architecture
 
 Using [flutter BLoC](https://pub.dev/packages/flutter_bloc) for Business Logic Component Design Pattern.
 
-### Example Feature
+### :test_tube: How to Test Coverage
+
+- on MacOs ```flutter test --coverage && genhtml -o coverage coverage/lcov.info```
+- on Windows ```flutter test --coverage```. Then open your git bash and type ```./genhtml.perl coverage/lcov.info -o coverage/html```
+
+### :dark_sunglasses: Example Feature
 
 <div style="text-align: center">
     <table>
@@ -105,15 +198,24 @@ Using [flutter BLoC](https://pub.dev/packages/flutter_bloc) for Business Logic C
     </table>
 </div>
 
-### Versioning
+### :new: Versioning
 
-Major-Minor-Patch
+Using Semantic Versioning 2.0.0
 
-### Naming Convention
+Major.Minor.Patch
+
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+1. MAJOR version when you make incompatible API changes,
+2. MINOR version when you add functionality in a backwards compatible manner, and
+3. PATCH version when you make backwards compatible bug fixes.
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+### :capital_abcd: Naming Convention
 
 snake_case for file and folder.
 
-### Theme
+### :beach_umbrella: Theme
 
 ```dart
 /// Abstraction for material theme.
@@ -171,44 +273,27 @@ class ThemeCubit extends Cubit<ThemeData> {
 ```
 
 
-### Create key.properties
+### :key: Keystore & key.properties (Android)
 
+Create your own keystore for debug, development, staging, and production.
+then Create key.properties inside android folder, for example:
 ```properties
 storePassword=wolffood30
-storePasswordDevelopment=dogfood30
+storePasswordDebug=dogfood30
+storePasswordDevelopment=dogfooddev30
 storePasswordStaging=dogfoodstg30
 keyPassword=wolffood30
-keyPasswordDevelopment=dogfood30
+keyPasswordDebug=dogfood30
+keyPasswordDevelopment=dogfooddev30
 keyPasswordStaging=dogfoodstg30
 keyAlias=key
 # For debugging
-keyAliasDevelopment=androiddebugkey
+keyAliasDebug=androiddebugkey
+keyAliasDevelopment=key
 keyAliasStaging=key
 storeFile=release.jks
 # For debugging
+storeFileDebug=debug.jks
 storeFileDevelopment=releaseDevelopment.jks
 storeFileStaging=releaseStaging.jks
 ```
-
-
-### Project Tree
-```tree
-├── .github
-│   └── workflows
-│       └── test.yml
-│ 
-├── android  
-├── .gitignore
-├── CHANGELOG.md
-└── README.md
-```
-
-A brief description of the layout:
-
-* `.github` has one github workflows folder.
-* `.gitignore` varies per project, but all projects need to ignore `bin` directory.
-* `test.yml` is the flutter-dart-lint config file.
-
-## Notes
-
-* genhtml.perl **MUST NOT** change well-defined command semantics, see genhtml.perl for details.

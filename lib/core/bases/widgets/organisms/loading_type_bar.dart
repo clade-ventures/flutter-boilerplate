@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/width_space.dart';
+import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/width_size.dart';
 import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
 import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
 
