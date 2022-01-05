@@ -23,6 +23,7 @@ Flutter repository template version 0.0.1
 - [X] Firebase Analytics.
 - [X] Firebase Crashlytics.
 - [ ] Firebase Messaging.
+- [ ] Formatter.    
 - [ ] WebView Service.
 - [ ] Localization.
 - [ ] Model Generator.
