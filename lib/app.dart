@@ -29,6 +29,7 @@ class App extends StatelessWidget {
             return MaterialApp(
               title: 'Flutter boilerplate',
               debugShowCheckedModeBanner: false,
+              navigatorKey: nav.navigatorKey,
               navigatorObservers: [
                 FirebaseAnalyticsObserver(analytics: analytics),
               ],
