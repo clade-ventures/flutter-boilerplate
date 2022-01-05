@@ -35,6 +35,8 @@ class Config {
     await SharedPreferencesService.init();
     if (kDebugMode && !kIsWeb) {
       await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(false);
+      // TODO(any): crash
+      // FirebaseCrashlytics.instance.crash();
     }
 
     /// Initialize Future variables.
