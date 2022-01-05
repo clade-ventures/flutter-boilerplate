@@ -6,6 +6,7 @@ class BaseColors {
   static const Color disableColor = Color(0xFFCFCFCF);
   static const Color border = Color(0xFFE3E4E5);
   static const Color primary = Color(0xFF101C42);
+  static const Color danger = Color(0xFFE53A34);
   static const MaterialColor materialBlack = MaterialColor(
     000000,
     <int, Color>{

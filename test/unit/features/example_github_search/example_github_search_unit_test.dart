@@ -4,11 +4,22 @@ import 'package:dio/dio.dart';
 import 'package:flutter_strong_boilerplate/core/bases/entities/query_search.dart';
 import 'package:flutter_strong_boilerplate/core/client/dio.dart';
 import 'package:flutter_strong_boilerplate/features/example_github_search/data/datasources/github_search_remote_data_source.dart';
+import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/github_user_model.dart';
+import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/issue_model.dart';
+import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/label_model.dart';
+import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/license_model.dart';
+import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/milestone_model.dart';
+import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/owner_model.dart';
+import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/pull_request_model.dart';
+import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/reactions_model.dart';
+import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/repository_model.dart';
+import 'package:flutter_strong_boilerplate/services/shared_preferences_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mocktail/mocktail.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../mocked_dio.dart';
+import '../../../dio_mocks.dart';
 
 class HttpMock extends Mock implements http.Client {}
 
@@ -21,6 +32,8 @@ void main() {
   late DioAdapterMock dioAdapterMock;
 
   setUpAll(() {
+    SharedPreferences.setMockInitialValues({});
+    SharedPreferencesService.init();
     registerFallbackValue(RequestOptionsFake());
     dioAdapterMock = DioAdapterMock();
     dio.httpClientAdapter = dioAdapterMock;
@@ -548,6 +561,10 @@ A programming language designed for client development, such as for the web and 
       // assert
       expect(resp.statusCode, 200);
       expect(resp.data.first.toJson(), isA<Map<String, dynamic>>());
+      expect(resp.data.first.hashCode, isA<int>());
+      expect(resp.data.first == GithubUserModel(), false);
+      // ignore:unrelated_type_equality_checks
+      expect(resp.data.first == RepositoryModel(), false);
     });
 
     test('Github search repo unit test', () async {
@@ -558,6 +575,12 @@ A programming language designed for client development, such as for the web and 
       // assert
       expect(resp.statusCode, 200);
       expect(resp.data.first.toJson(), isA<Map<String, dynamic>>());
+      expect(resp.data.first.hashCode, isA<int>());
+      expect(resp.data.first == RepositoryModel(), false);
+      expect(resp.data.first.owner == OwnerModel(), false);
+      expect(resp.data.first.license == LicenseModel(), false);
+      // ignore:unrelated_type_equality_checks
+      expect(resp.data.first == GithubUserModel(), false);
     });
 
     test('Github search issue unit test', () async {
@@ -568,6 +591,14 @@ A programming language designed for client development, such as for the web and 
       // assert
       expect(resp.statusCode, 200);
       expect(resp.data.first.toJson(), isA<Map<String, dynamic>>());
+      expect(resp.data.first.hashCode, isA<int>());
+      expect(resp.data.first == IssueModel(), false);
+      expect(resp.data.first.reactions == ReactionsModel(), false);
+      expect(resp.data.first.pullRequest == PullRequestModel(), false);
+      expect(resp.data.first.milestone == MilestoneModel(), false);
+      expect(resp.data.first.labels!.first == LabelModel(), false);
+      // ignore:unrelated_type_equality_checks
+      expect(resp.data.first == RepositoryModel(), false);
     });
 
     test('Garbage unit test', () async {
