@@ -21,7 +21,7 @@ class GithubSearchRemoteDataSourceImpl implements GithubSearchRemoteDataSource {
   Future<Parsed<List<GithubUserModel>>> searchUser(QuerySearch q) async {
     final list = <GithubUserModel>[];
     final url = '${Endpoints.searchUsers}?$q';
-    final resp = await getIt(url, dio: dio);
+    final resp = await getIt(url, dio: dio, headers: <String, String>{});
     for (final data in resp.bodyAsMap['items']) {
       list.add(GithubUserModel.fromJson(data));
     }
@@ -32,7 +32,7 @@ class GithubSearchRemoteDataSourceImpl implements GithubSearchRemoteDataSource {
   Future<Parsed<List<RepositoryModel>>> searchRepo(QuerySearch q) async {
     final list = <RepositoryModel>[];
     final url = '${Endpoints.searchRepositories}?$q';
-    final resp = await getIt(url, dio: dio);
+    final resp = await getIt(url, dio: dio, headers: <String, String>{});
     for (final data in resp.bodyAsMap['items']) {
       list.add(RepositoryModel.fromJson(data));
     }
@@ -43,7 +43,7 @@ class GithubSearchRemoteDataSourceImpl implements GithubSearchRemoteDataSource {
   Future<Parsed<List<IssueModel>>> searchIssue(QuerySearch q) async {
     final list = <IssueModel>[];
     final url = '${Endpoints.searchIssues}?$q';
-    final resp = await getIt(url, dio: dio);
+    final resp = await getIt(url, dio: dio, headers: <String, String>{});
     for (final data in resp.bodyAsMap['items']) {
       list.add(IssueModel.fromJson(data));
     }

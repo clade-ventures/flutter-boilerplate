@@ -118,7 +118,6 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
           ],
-          // controller: _scrollController,
           body: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: GithubSearchListView(

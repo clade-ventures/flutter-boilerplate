@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/circle_loading.dart';
 import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/height_size.dart';
 import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/width_size.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/layout/base_stateful.dart';
+import 'package:flutter_strong_boilerplate/core/bases/widgets/layout/base_pagination_state.dart';
 import 'package:flutter_strong_boilerplate/core/bases/widgets/molecules/custom_scaffold.dart';
 import 'package:flutter_strong_boilerplate/core/screen/sizing_information.dart';
 import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
@@ -34,9 +34,8 @@ class GithubSearchListView extends StatefulWidget {
   _GithubSearchListViewState createState() => _GithubSearchListViewState();
 }
 
-class _GithubSearchListViewState extends BaseStateful<GithubSearchListView> {
-  late ScrollController scrollController;
-
+class _GithubSearchListViewState
+    extends BasePaginationState<GithubSearchListView> {
   @override
   PreferredSizeWidget? buildAppBar(BuildContext context) {
     return null;
@@ -49,10 +48,6 @@ class _GithubSearchListViewState extends BaseStateful<GithubSearchListView> {
 
   @override
   Widget buildNarrowLayout(BuildContext context, SizingInformation sizeInfo) {
-    // print('build');
-    // if (!scrollController.hasListeners) {
-    //   scrollController.addListener(_onScroll);
-    // }
     return BlocBuilder<GithubSearchBloc, GithubSearchState>(
       builder: (context, state) {
         if (state is GithubSearchInitial) {
@@ -200,30 +195,6 @@ Cannot found ${widget.stringQuery}\nin ${_mapByType(widget.type)}''',
                     ? length
                     : length + 1,
           );
-          // } else {
-          //   return ListView.separated(
-          //     controller: scrollController,
-          //     padding: const EdgeInsets.symmetric(
-          //       vertical: 12,
-          //       horizontal: 20,
-          //     ),
-          //     itemBuilder: (c, i) {
-          //
-          //       if (widget.type == 0) {
-          //         final user = state.users![i];
-          //         return UserItem(user: user);
-          //       } else if (widget.type == 1) {
-          //         final repo = state.repositories![i];
-          //         return RepositoryItem(repo: repo);
-          //       } else {
-          //         final issue = state.issues![i];
-          //         return IssueItem(issue: issue);
-          //       }
-          //     },
-          //     separatorBuilder: (_, __) => const HeightSize(14),
-          //     itemCount: length + 1,
-          //   );
-          // }
         }
         return Container();
       },
@@ -236,22 +207,14 @@ Cannot found ${widget.stringQuery}\nin ${_mapByType(widget.type)}''',
   }
 
   @override
-  void init() {
-    scrollController = ScrollController();
-    scrollController.addListener(_onScroll);
-  }
+  void init() {}
 
   @override
   Future<bool> onBackPressed() async {
     return true;
   }
 
-  void _onScroll() {
-    if (_isBottom && scrollCondition()) {
-      onScroll();
-    }
-  }
-
+  @override
   void onScroll() {
     context.read<GithubSearchBloc>()
       ..isFetching = true
@@ -262,21 +225,11 @@ Cannot found ${widget.stringQuery}\nin ${_mapByType(widget.type)}''',
       );
   }
 
+  @override
   bool scrollCondition() {
     return !context.read<GithubSearchBloc>().isFetching &&
         !context.read<GithubSearchBloc>().hasReachedMax &&
         widget.loadingType == 0;
-  }
-
-  /// Scroll position is in bottom checker
-  /// Using 0.9 ratio
-  bool get _isBottom {
-    if (!scrollController.hasClients) {
-      return false;
-    }
-    final maxScroll = scrollController.position.maxScrollExtent;
-    final currentScroll = scrollController.offset;
-    return currentScroll >= (maxScroll * 0.9);
   }
 
   String? _mapByType(int type) {

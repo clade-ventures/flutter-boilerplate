@@ -119,6 +119,12 @@ Notes:
 
 ### 🚚 How to run, drive, and build Apk
 
+Example how to run debug development app
+```shell
+flutter clean
+flutter pub get
+flutter run -t lib/main_development.dart --release --flavor debuging
+```
 Example how to run release development app
 ```shell
 flutter clean
@@ -156,7 +162,7 @@ flutter drive -t test_driver/app.dart --flavor development
 
 ### ⚙️ Supported Flavor
 
-1. debug
+1. debuging
 2. development
 3. staging
 4. production
