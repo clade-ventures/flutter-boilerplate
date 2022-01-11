@@ -23,7 +23,7 @@ Flutter repository template version 0.0.1
 - [X] Firebase Analytics.
 - [X] Firebase Crashlytics.
 - [ ] Firebase Messaging.
-- [ ] Singletons (DIO & other services).
+- [X] Singletons (DIO & other services).
 - [ ] Formatter.    
 - [ ] WebView Service.
 - [ ] Localization.
@@ -117,6 +117,20 @@ Notes:
     - [Understand Firebase Project](https://firebase.google.com/docs/projects/learn-more)
     - [Firebase analytics](https://pub.dev/packages/firebase_analytics)
     - [Firebase crashlytics](https://pub.dev/packages/firebase_crashlytics)
+   
+4. Add template repository as a remote
+
+```shell
+git remote add template https://github.com/clade-ventures/flutter-boilerplate.git
+```
+Then run git fetch to update the changes
+```shell
+git fetch --all
+```
+Then is possible to merge another branch from the new remote to your current one.
+```shell
+git merge template/[branch to merge]
+```
 
 ### 🚚 How to run, drive, and build Apk
 
