@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/molecules/messenger.dart';
 import 'package:logger/logger.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../core/bases/widgets/molecules/messenger.dart';
 
 // Please refer to https://pub.dev/packages/url_launcher
 

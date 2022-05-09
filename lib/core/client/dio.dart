@@ -1,9 +1,11 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_strong_boilerplate/services/shared_preferences_service.dart';
+import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
+
+import '../../services/shared_preferences_service.dart';
 
 /// Defaults Dio Options
 final options = Options(
@@ -12,6 +14,40 @@ final options = Options(
 );
 
 const Duration globalTimeout = Duration(seconds: 15);
+
+final interceptors = QueuedInterceptorsWrapper(
+  onRequest: (options, handler) {
+    options.headers.addAll(SharedPreferencesService.getHeaders());
+    return handler.next(options);
+  },
+  onResponse: (resp, handler) {
+    if (kDebugMode) {
+      final isBytes = resp.requestOptions.responseType == ResponseType.bytes;
+      Logger().i({
+        'api': '''
+${resp.statusCode}: ${resp.requestOptions.baseUrl}${resp.requestOptions.path}''',
+        'headers': resp.requestOptions.headers,
+        'queryParams': resp.requestOptions.queryParameters,
+        'body': resp.requestOptions.data,
+        'response': isBytes ? null : resp.data,
+      });
+    }
+    return handler.next(resp);
+  },
+  onError: (err, handler) async {
+    if (kDebugMode) {
+      Logger().e({
+        'api': '''
+${err.response?.statusCode ?? 0}: ${err.requestOptions.baseUrl}${err.requestOptions.path}''',
+        'headers': err.requestOptions.headers,
+        'queryParams': err.requestOptions.queryParameters,
+        'body': err.requestOptions.data,
+        'response': err.response?.data
+      });
+    }
+    return handler.next(err);
+  },
+);
 
 Future<Response> getIt(
   String url, {

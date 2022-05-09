@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/app.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/global_icon.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/height_size.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/primary_button.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/secondary_button.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/width_size.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/molecules/dialog_box.dart';
-import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
-import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
+
+import '../../../../app.dart';
+import '../../../theme/base_colors.dart';
+import '../../../theme/font_theme.dart';
+import '../atoms/global_icon.dart';
+import '../atoms/height_size.dart';
+import '../atoms/primary_button.dart';
+import '../atoms/secondary_button.dart';
+import '../atoms/width_size.dart';
+import 'dialog_box.dart';
 
 enum ConfirmationModalDialogType {
   info,
@@ -44,7 +45,7 @@ class ConfirmationModalDialog extends DialogBox {
             Expanded(
               child: SecondaryButton(
                 text: noLabel,
-                onPressed: cancelAction ?? () => nav.pop(false),
+                onPressed: cancelAction ?? () => Navigator.pop(context, false),
                 activeColor: BaseColors.primary,
                 isBorder: true,
               ),
@@ -63,7 +64,7 @@ class ConfirmationModalDialog extends DialogBox {
                             setState(() => isLoading = true);
                             await additionalFunction.call();
                           }
-                        : () => nav.pop(true)),
+                        : () => Navigator.pop(context, true)),
                 activeColor: type == ConfirmationModalDialogType.warning
                     ? BaseColors.danger
                     : BaseColors.primary,

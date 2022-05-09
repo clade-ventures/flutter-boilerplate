@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:flutter_strong_boilerplate/core/bases/blocs/theme/theme_cubit.dart';
-import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
-import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
+
+import '../../../theme/base_colors.dart';
+import '../../../theme/font_theme.dart';
+import '../../blocs/theme/theme_cubit.dart';
 
 /// A Secondary Button.
 class SecondaryButton extends StatelessWidget {

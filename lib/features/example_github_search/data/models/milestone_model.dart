@@ -1,4 +1,4 @@
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/github_user_model.dart';
+import 'github_user_model.dart';
 
 class MilestoneModel {
   String? url;

@@ -1,8 +1,8 @@
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/github_user_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/label_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/milestone_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/pull_request_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/reactions_model.dart';
+import 'github_user_model.dart';
+import 'label_model.dart';
+import 'milestone_model.dart';
+import 'pull_request_model.dart';
+import 'reactions_model.dart';
 
 class IssueModel {
   String? url;

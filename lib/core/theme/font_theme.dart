@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'base_colors.dart';
 
 class FontTheme {
   /// Rubik

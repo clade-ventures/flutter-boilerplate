@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/height_size.dart';
-import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/issue_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/widgets/user_item.dart';
+import '../../../../core/bases/widgets/atoms/height_size.dart';
+import '../../../../core/theme/font_theme.dart';
+import '../../data/models/issue_model.dart';
+import 'user_item.dart';
 
 class IssueItem extends StatelessWidget {
   const IssueItem({

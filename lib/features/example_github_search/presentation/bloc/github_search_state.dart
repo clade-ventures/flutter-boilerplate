@@ -1,9 +1,9 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_strong_boilerplate/core/bases/entities/query_search.dart';
-import 'package:flutter_strong_boilerplate/core/errors/failures.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/github_user_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/issue_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/repository_model.dart';
+import '../../../../core/bases/entities/query_search.dart';
+import '../../../../core/errors/failures.dart';
+import '../../data/models/github_user_model.dart';
+import '../../data/models/issue_model.dart';
+import '../../data/models/repository_model.dart';
 
 abstract class GithubSearchState extends Equatable {
   const GithubSearchState();

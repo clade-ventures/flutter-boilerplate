@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
 
 import 'app_theme.dart';
+import 'base_colors.dart';
 
 /// Implementation for app material theme.
 class AppThemeImpl implements AppTheme {

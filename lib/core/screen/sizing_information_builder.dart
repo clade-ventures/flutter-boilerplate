@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/screen/sizing_information.dart';
+import 'sizing_information.dart';
 
 typedef SizeBuilder = Widget Function(
   BuildContext context,

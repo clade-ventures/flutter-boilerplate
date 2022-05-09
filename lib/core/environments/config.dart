@@ -3,10 +3,13 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_strong_boilerplate/core/environments/endpoints.dart';
-import 'package:flutter_strong_boilerplate/core/environments/flavor.dart';
-import 'package:flutter_strong_boilerplate/services/local_notification_service.dart';
-import 'package:flutter_strong_boilerplate/services/shared_preferences_service.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../services/di.dart';
+import '../../services/local_notification_service.dart';
+import '../../services/shared_preferences_service.dart';
+import 'endpoints.dart';
+import 'flavor.dart';
 
 class Config {
   static Flavor? appFlavor;
@@ -28,6 +31,9 @@ class Config {
     imagesPath = '${assetsPath!}/images';
     iconsPath = '${assetsPath!}/icons';
 
+    await configureDependencies(
+      environmentFilter: SimpleEnvironmentFilter(filter: (_) => true),
+    );
     await Firebase.initializeApp();
 
     /// Initialization of all services.

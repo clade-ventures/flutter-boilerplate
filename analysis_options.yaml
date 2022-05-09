@@ -7,6 +7,7 @@ analyzer:
     - lib/**/*.g.dart
     - lib/**/*.freezed.dart
     - test/**/*.mocks.dart
+    - test/**/**/**/fixtures/*.fixture.dart
 
   strong-mode:
     implicit-casts: true
@@ -43,6 +44,7 @@ linter:
     avoid_dynamic_calls: false
     one_member_abstracts: false
     library_private_types_in_public_api: false
+    prefer_relative_imports: true
     # DO avoid print calls in production code.
     #
     # https://dart-lang.github.io/linter/lints/avoid_print.html

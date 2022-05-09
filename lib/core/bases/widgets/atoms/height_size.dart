@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/sizer.dart';
+import 'sizer.dart';
 
 /// A Height Size Widget
 class HeightSize extends StatelessWidget implements Sizer {

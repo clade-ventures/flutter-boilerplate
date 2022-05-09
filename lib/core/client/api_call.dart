@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:flutter_strong_boilerplate/core/errors/decider.dart';
-import 'package:flutter_strong_boilerplate/core/errors/failures.dart';
 import 'package:logger/logger.dart';
+
+import '../errors/decider.dart';
+import '../errors/failures.dart';
 
 /// Function for mapping api call into either success or failure.
 Future<Decide<Failure, T>> apiCall<T>(Future<T> t) async {

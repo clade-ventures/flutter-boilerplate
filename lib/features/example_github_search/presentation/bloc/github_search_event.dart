@@ -1,4 +1,4 @@
-import 'package:flutter_strong_boilerplate/core/bases/entities/query_search.dart';
+import '../../../../core/bases/entities/query_search.dart';
 
 abstract class GithubSearchEvent {}
 
