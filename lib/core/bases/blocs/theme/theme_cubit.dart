@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_strong_boilerplate/core/theme/app_theme.dart';
-import 'package:flutter_strong_boilerplate/core/theme/app_theme_impl.dart';
+import '../../../theme/app_theme.dart';
+import '../../../theme/app_theme_impl.dart';
 
 class ThemeCubit extends Cubit<ThemeData> {
   /// {@macro brightness_cubit}

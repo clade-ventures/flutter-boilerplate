@@ -1,9 +1,10 @@
 import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/organisms/base_app_bar.dart';
-import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
-import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
-import 'package:flutter_strong_boilerplate/services/launch_service.dart';
+
+import '../../../../services/launch_service.dart';
+import '../../../theme/base_colors.dart';
+import '../../../theme/font_theme.dart';
+import 'base_app_bar.dart';
 
 /// Custom video viewer
 ///
@@ -58,7 +59,6 @@ class _VideoViewerPageState extends State<VideoViewerPage> {
         title: 'Detail',
         centerTitle: false,
         backgroundColor: Colors.black,
-        leadingColor: Colors.white,
         titleStyle: FontTheme.rubik14w500black1().copyWith(
           fontSize: 18,
           color: BaseColors.white,

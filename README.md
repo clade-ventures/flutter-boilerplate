@@ -24,10 +24,10 @@ Flutter repository template version 0.0.1
 - [X] Firebase Crashlytics.
 - [ ] Firebase Messaging.
 - [X] Singletons (DIO & other services).
-- [ ] Formatter.    
+- [X] Formatter.    
 - [ ] WebView Service.
-- [ ] Localization.
-- [ ] Model Generator.
+- [X] Localization.
+- [X] Model Generator.
 - [ ] Fastlane.
 - [ ] Documentations (Readme.md's & Wikis).
 - [ ] StoryBook.
@@ -133,6 +133,11 @@ git merge template/[branch to merge]
 ```
 
 ### 🚚 How to run, drive, and build Apk
+
+Make sure run this command before run the app to generate localizations.
+```shell
+flutter gen-l10n
+```
 
 Example how to run debug development app
 ```shell

@@ -1,50 +1,40 @@
-import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/layout/base_state_normal.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/molecules/custom_scaffold.dart';
-import 'package:flutter_strong_boilerplate/core/environments/config.dart';
-import 'package:flutter_strong_boilerplate/core/screen/sizing_information.dart';
-import 'package:flutter_strong_boilerplate/core/screen/sizing_information_builder.dart';
+import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
-/// An abstractions for page which has pagination.
-abstract class BasePaginationState<T extends StatefulWidget> extends State<T>
+import '../../../screen/sizing_information.dart';
+import '../../../screen/sizing_information_builder.dart';
+import '../molecules/custom_scaffold.dart';
+import 'base_state_normal.dart';
+
+/// Note: When using this base pagination state, inside initState please call
+/// super.initState() first
+abstract class BasePaginationState<T extends StatefulWidget, K> extends State<T>
     with Diagnosticable
     implements BaseStateNormal {
   late GlobalKey<RefreshIndicatorState> refreshIndicatorKey;
-  late ScrollController scrollController;
-  Completer<void>? completer;
-  String? appName;
+  late PagingController<int, K> pagingController;
 
   @override
   void initState() {
     super.initState();
-    completer = Completer<void>();
+    pagingController = PagingController<int, K>(firstPageKey: 1);
     refreshIndicatorKey = GlobalKey<RefreshIndicatorState>();
-    scrollController = ScrollController();
-    scrollController.addListener(_onScroll);
-    appName = Config.appName;
+    pagingController.addPageRequestListener(onRequest);
     init();
   }
 
-  void _onScroll() {
-    if (_isBottom && !completer!.isCompleted && scrollCondition()) {
-      onScroll();
-    }
+  @override
+  void dispose() {
+    pagingController.dispose();
+    super.dispose();
   }
 
-  bool scrollCondition();
+  void onRequest(int pageKey);
 
-  void onScroll();
-
-  bool get _isBottom {
-    if (!scrollController.hasClients) {
-      return false;
-    }
-    final maxScroll = scrollController.position.maxScrollExtent;
-    final currentScroll = scrollController.offset;
-    return currentScroll >= (maxScroll * 0.9);
+  // Refreshing refresh indicator widget
+  Future<void> onRefresh() async {
+    pagingController.refresh();
   }
 
   ScaffoldAttribute buildAttribute();
@@ -58,9 +48,15 @@ abstract class BasePaginationState<T extends StatefulWidget> extends State<T>
         body: SizingInformationBuilder(
           builder: (context, sizeInfo) {
             if (sizeInfo.deviceType == DeviceScreenType.mobile) {
-              return buildNarrowLayout(context, sizeInfo);
+              return buildNarrowLayout(
+                context,
+                sizeInfo,
+              );
             }
-            return buildWideLayout(context, sizeInfo);
+            return buildWideLayout(
+              context,
+              sizeInfo,
+            );
           },
         ),
         appBar: buildAppBar(context),

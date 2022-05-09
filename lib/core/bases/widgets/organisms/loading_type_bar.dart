@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/width_size.dart';
-import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
-import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
+
+import '../../../theme/base_colors.dart';
+import '../../../theme/font_theme.dart';
+import '../atoms/width_size.dart';
 
 class LoadingTypeBar extends StatelessWidget {
   const LoadingTypeBar({

@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/layout/base_state_normal.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/molecules/custom_scaffold.dart';
-import 'package:flutter_strong_boilerplate/core/screen/sizing_information.dart';
-import 'package:flutter_strong_boilerplate/core/screen/sizing_information_builder.dart';
+
+import '../../../screen/sizing_information.dart';
+import '../../../screen/sizing_information_builder.dart';
+import '../molecules/custom_scaffold.dart';
+import 'base_state_normal.dart';
 
 abstract class BaseStateful<T extends StatefulWidget> extends State<T>
     with Diagnosticable

@@ -1,12 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_strong_boilerplate/core/bases/entities/query_search.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/datasources/github_search_remote_data_source.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/repositories/github_search_repository_impl.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/domain/repositories/github_search_repository.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/bloc/github_search_event.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/bloc/github_search_state.dart';
+import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
+import '../../../../core/bases/entities/query_search.dart';
+import '../../data/datasources/github_search_remote_data_source.dart';
+import '../../data/repositories/github_search_repository_impl.dart';
+import '../../domain/repositories/github_search_repository.dart';
+import 'github_search_event.dart';
+import 'github_search_state.dart';
+
+@injectable
 class GithubSearchBloc extends Bloc<GithubSearchEvent, GithubSearchState> {
   GithubSearchBloc() : super(GithubSearchInitial()) {
     final _remoteDataSource = GithubSearchRemoteDataSourceImpl();

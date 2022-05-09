@@ -2,30 +2,33 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/circle_loading.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/height_size.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/width_size.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/layout/base_pagination_state.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/molecules/custom_scaffold.dart';
-import 'package:flutter_strong_boilerplate/core/screen/sizing_information.dart';
-import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
-import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/bloc/github_search_bloc.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/bloc/github_search_event.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/bloc/github_search_state.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/widgets/issue_item.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/widgets/repository_item.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/widgets/user_item.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../../core/bases/widgets/atoms/circle_loading.dart';
+import '../../../../core/bases/widgets/atoms/height_size.dart';
+import '../../../../core/bases/widgets/atoms/width_size.dart';
+import '../../../../core/bases/widgets/layout/base_pagination_state.dart';
+import '../../../../core/bases/widgets/molecules/custom_scaffold.dart';
+import '../../../../core/screen/sizing_information.dart';
+import '../../../../core/theme/base_colors.dart';
+import '../../../../core/theme/font_theme.dart';
+import '../bloc/github_search_bloc.dart';
+import '../bloc/github_search_event.dart';
+import '../bloc/github_search_state.dart';
+import '../widgets/issue_item.dart';
+import '../widgets/repository_item.dart';
+import '../widgets/user_item.dart';
 
 class GithubSearchListView extends StatefulWidget {
   const GithubSearchListView({
     Key? key,
+    required this.bloc,
     required this.loadingType,
     required this.type,
     this.stringQuery,
   }) : super(key: key);
 
+  final GithubSearchBloc bloc;
   final int loadingType;
   final int type;
   final String? stringQuery;
@@ -35,7 +38,7 @@ class GithubSearchListView extends StatefulWidget {
 }
 
 class _GithubSearchListViewState
-    extends BasePaginationState<GithubSearchListView> {
+    extends BasePaginationState<GithubSearchListView, dynamic> {
   @override
   PreferredSizeWidget? buildAppBar(BuildContext context) {
     return null;
@@ -118,7 +121,6 @@ Cannot found ${widget.stringQuery}\nin ${_mapByType(widget.type)}''',
           }
           // if (widget.loadingType == 0) {
           return ListView.separated(
-            controller: scrollController,
             padding: const EdgeInsets.symmetric(
               vertical: 12,
               horizontal: 20,
@@ -214,24 +216,6 @@ Cannot found ${widget.stringQuery}\nin ${_mapByType(widget.type)}''',
     return true;
   }
 
-  @override
-  void onScroll() {
-    context.read<GithubSearchBloc>()
-      ..isFetching = true
-      ..add(
-        SearchMoreGithubData(
-          type: widget.type,
-        ),
-      );
-  }
-
-  @override
-  bool scrollCondition() {
-    return !context.read<GithubSearchBloc>().isFetching &&
-        !context.read<GithubSearchBloc>().hasReachedMax &&
-        widget.loadingType == 0;
-  }
-
   String? _mapByType(int type) {
     if (widget.type == 0) {
       return 'Users';
@@ -240,5 +224,16 @@ Cannot found ${widget.stringQuery}\nin ${_mapByType(widget.type)}''',
     } else if (widget.type == 2) {
       return 'Issues';
     }
+    return null;
+  }
+
+  @override
+  void onRequest(int pageKey) {
+    // widget.bloc.add(
+    //   SearchMoreGithubData(
+    //     page: pageKey,
+    //     status: selectedStatus,
+    //   ),
+    // );
   }
 }

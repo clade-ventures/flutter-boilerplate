@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/theme/base_colors.dart';
+import '../../theme/base_colors.dart';
 
 class TextInputDecorator {
   TextInputDecorator() {

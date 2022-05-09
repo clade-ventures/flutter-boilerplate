@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/height_size.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/width_size.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/molecules/messenger.dart';
-import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/repository_model.dart';
+import '../../../../core/bases/widgets/atoms/height_size.dart';
+import '../../../../core/bases/widgets/atoms/width_size.dart';
+import '../../../../core/bases/widgets/molecules/messenger.dart';
+import '../../../../core/theme/font_theme.dart';
+import '../../data/models/repository_model.dart';
 
 class RepositoryItem extends StatelessWidget {
   const RepositoryItem({

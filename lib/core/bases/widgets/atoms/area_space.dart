@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/atoms/sizer.dart';
+import 'sizer.dart';
 
 /// A Area Size Widget.
 class AreaSize extends StatelessWidget implements Sizer {

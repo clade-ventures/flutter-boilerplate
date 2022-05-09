@@ -1,5 +1,5 @@
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/license_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/owner_model.dart';
+import 'license_model.dart';
+import 'owner_model.dart';
 
 class RepositoryModel {
   int? id;

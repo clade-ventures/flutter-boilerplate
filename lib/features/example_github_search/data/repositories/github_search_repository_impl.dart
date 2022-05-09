@@ -1,13 +1,13 @@
-import 'package:flutter_strong_boilerplate/core/bases/entities/query_search.dart';
-import 'package:flutter_strong_boilerplate/core/client/api_call.dart';
-import 'package:flutter_strong_boilerplate/core/errors/decider.dart';
-import 'package:flutter_strong_boilerplate/core/errors/failures.dart';
-import 'package:flutter_strong_boilerplate/core/extensions/response_extension.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/datasources/github_search_remote_data_source.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/github_user_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/issue_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/repository_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/domain/repositories/github_search_repository.dart';
+import '../../../../core/bases/entities/query_search.dart';
+import '../../../../core/client/api_call.dart';
+import '../../../../core/errors/decider.dart';
+import '../../../../core/errors/failures.dart';
+import '../../../../core/extensions/response_extension.dart';
+import '../../domain/repositories/github_search_repository.dart';
+import '../datasources/github_search_remote_data_source.dart';
+import '../models/github_user_model.dart';
+import '../models/issue_model.dart';
+import '../models/repository_model.dart';
 
 class SearchRepositoryImpl implements SearchRepository {
   final GithubSearchRemoteDataSource _remoteDataSource;

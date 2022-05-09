@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_strong_boilerplate/core/bases/decorators/input_decorator.dart';
-import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../../../theme/font_theme.dart';
+import '../../decorators/input_decorator.dart';
 
 class SearchBar extends StatelessWidget {
   const SearchBar({

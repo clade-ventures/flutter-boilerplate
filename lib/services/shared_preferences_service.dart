@@ -1,6 +1,7 @@
-import 'package:flutter_strong_boilerplate/core/constants/preferences_keys.dart';
 import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../core/constants/preferences_keys.dart';
 
 class SharedPreferencesService {
   static SharedPreferences? _pref;

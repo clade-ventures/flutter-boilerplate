@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_strong_boilerplate/core/bases/entities/query_search.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/organisms/loading_type_bar.dart';
-import 'package:flutter_strong_boilerplate/core/bases/widgets/organisms/search_bar.dart';
-import 'package:flutter_strong_boilerplate/core/theme/font_theme.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/bloc/github_search_bloc.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/bloc/github_search_event.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/bloc/github_search_state.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/presentation/pages/github_search_list_view.dart';
+import '../../../../core/bases/entities/query_search.dart';
+import '../../../../core/bases/widgets/organisms/loading_type_bar.dart';
+import '../../../../core/bases/widgets/organisms/search_bar.dart';
+import '../../../../core/theme/font_theme.dart';
+import '../../../../services/di.dart';
+import '../bloc/github_search_bloc.dart';
+import '../bloc/github_search_event.dart';
+import '../bloc/github_search_state.dart';
+import 'github_search_list_view.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -21,11 +21,18 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   final searchController = TextEditingController();
   final types = <String>['Users', 'Repositories', 'Issues'];
+  late GithubSearchBloc _githubSearchBloc;
   int selectedIndex = 0;
   int pageIndex = 0;
 
   String? _lastStringQ;
   Timer? _debounce;
+
+  @override
+  void initState() {
+    super.initState();
+    _githubSearchBloc = get<GithubSearchBloc>();
+  }
 
   @override
   void dispose() {
@@ -78,19 +85,17 @@ class _MainPageState extends State<MainPage> {
                                         setState(() {
                                           pageIndex = val!;
                                         });
-                                        final state = context
-                                            .read<GithubSearchBloc>()
-                                            .state;
+                                        final state = _githubSearchBloc.state;
                                         if (state is! GithubSearchInitial) {
                                           final q = QuerySearch(
                                             q: searchController.text,
                                           );
-                                          context.read<GithubSearchBloc>().add(
-                                                SearchGithubData(
-                                                  querySearch: q,
-                                                  type: pageIndex,
-                                                ),
-                                              );
+                                          _githubSearchBloc.add(
+                                            SearchGithubData(
+                                              querySearch: q,
+                                              type: pageIndex,
+                                            ),
+                                          );
                                         }
                                       },
                                     ),
@@ -121,6 +126,7 @@ class _MainPageState extends State<MainPage> {
           body: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: GithubSearchListView(
+              bloc: _githubSearchBloc,
               loadingType: selectedIndex,
               type: pageIndex,
               stringQuery: searchController.text,
@@ -137,15 +143,15 @@ class _MainPageState extends State<MainPage> {
     }
     _lastStringQ = val;
     if (_debounce?.isActive ?? false) _debounce?.cancel();
-    context.read<GithubSearchBloc>().hasReachedMax = false;
+    _githubSearchBloc.hasReachedMax = false;
     _debounce = Timer(const Duration(milliseconds: 1600), () {
       final initialQ = QuerySearch(q: val);
-      context.read<GithubSearchBloc>().add(
-            SearchGithubData(
-              querySearch: initialQ,
-              type: pageIndex,
-            ),
-          );
+      _githubSearchBloc.add(
+        SearchGithubData(
+          querySearch: initialQ,
+          type: pageIndex,
+        ),
+      );
     });
   }
 }

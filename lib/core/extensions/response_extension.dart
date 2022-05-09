@@ -14,7 +14,6 @@ class Parsed<T> {
     Map<String, dynamic> json,
     this.statusCode,
     this.data,
-    this.meta,
   ) {
     message = json['error'] ?? json['detail'] ?? '';
   }
@@ -23,7 +22,6 @@ class Parsed<T> {
   late int totalCount;
   late String message;
   late T data;
-  PaginationMeta? meta;
 }
 
 extension ResponseExtension<T> on Response {
@@ -43,34 +41,4 @@ extension ResponseExtension<T> on Response {
   Map<String, dynamic> get bodyAsMap => data as Map<String, dynamic>;
   Map<String, dynamic> get dataBodyAsMap => responseData ?? <String, dynamic>{};
   Map<String, dynamic> get bodyMap => data as Map<String, dynamic>;
-}
-
-class PaginationMeta {
-  PaginationMeta({
-    this.currentPage,
-    this.lastPage,
-    this.total,
-    this.perPage,
-  });
-
-  PaginationMeta.fromJson(Map<String, dynamic> json) {
-    currentPage = json['current_page'];
-    lastPage = json['last_page'];
-    total = json['total'];
-    perPage = json['per_page'];
-  }
-
-  int? currentPage;
-  int? lastPage;
-  int? total;
-  int? perPage;
-
-  Map<String, dynamic> toJson() {
-    final data = <String, dynamic>{};
-    data['current_page'] = currentPage;
-    data['last_page'] = lastPage;
-    data['total'] = total;
-    data['per_page'] = perPage;
-    return data;
-  }
 }

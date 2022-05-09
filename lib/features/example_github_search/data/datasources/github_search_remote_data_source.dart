@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_strong_boilerplate/core/bases/entities/query_search.dart';
-import 'package:flutter_strong_boilerplate/core/client/dio.dart';
-import 'package:flutter_strong_boilerplate/core/environments/endpoints.dart';
-import 'package:flutter_strong_boilerplate/core/extensions/response_extension.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/github_user_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/issue_model.dart';
-import 'package:flutter_strong_boilerplate/features/example_github_search/data/models/repository_model.dart';
+import '../../../../core/bases/entities/query_search.dart';
+import '../../../../core/client/dio.dart';
+import '../../../../core/environments/endpoints.dart';
+import '../../../../core/extensions/response_extension.dart';
+import '../models/github_user_model.dart';
+import '../models/issue_model.dart';
+import '../models/repository_model.dart';
 
 abstract class GithubSearchRemoteDataSource {
   Future<Parsed<List<GithubUserModel>>> searchUser(QuerySearch q);
