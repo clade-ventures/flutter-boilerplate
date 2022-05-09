@@ -1,0 +1,37 @@
+name: Coverage Report
+on:
+  pull_request:
+    branches:
+      - main
+      - staging
+      - development
+  push:
+    branches:
+      - main
+      - staging
+      - development
+
+jobs:
+  coverage_report:
+    name: Generate coverage report
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # ... Generate LCOV files or download it from a different job
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "stable"
+          flutter-version: '2.10.3'
+      - name: generate coverage
+        run: |
+          flutter pub get
+          flutter pub run build_runner build --delete-conflicting-outputs
+          flutter test --coverage
+      - name: Report code coverage
+        uses: zgosalvez/github-actions-report-lcov@v1
+        with:
+          coverage-files: coverage/lcov.info
+          minimum-coverage: 70
+          artifact-name: code-coverage-report
+          github-token: ${{ secrets.GITHUB_TOKEN }}
