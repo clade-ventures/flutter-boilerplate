@@ -24,7 +24,7 @@ dependencies:
   flutter_svg: ^0.22.0
   cached_network_image: ^3.1.0
   shared_preferences: ^2.0.6
-  dio: ^4.0.4
+  dio: ^5.0.3
   equatable: ^2.0.3
   mocktail: ^0.2.0
   flutter_spinkit: ^5.1.0
